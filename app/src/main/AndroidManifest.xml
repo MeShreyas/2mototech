@@ -29,6 +29,8 @@
         <activity
             android:name="com.nirmancraft.corepowermobileapp.BrowseActivity"
             android:label="@string/title_app" >
+            <meta-data android:name="android.app.default_searchable"
+                android:value=".SearchableActivity" />
         </activity>
         <activity
             android:name="com.nirmancraft.corepowermobileapp.DetailsActivity"
@@ -38,6 +40,15 @@
         <activity
             android:name="com.nirmancraft.corepowermobileapp.LicenseActivity"
             android:label="@string/title_activity_license" >
+        </activity>
+        <activity
+            android:name="com.nirmancraft.corepowermobileapp.SearchableActivity"
+            android:label="@string/title_activity_searchable" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
         </activity>
     </application>
 

@@ -198,8 +198,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return dbRec;
     }
 
-    public List<DBRecord> searchRecords(String query) {
-        return null;
+    public List<DBRecord> searchRecords(String queryParam) {
+        List<DBRecord> recList = new ArrayList<DBRecord>();
+        SQLiteDatabase  db = this.getReadableDatabase();
+        String query = "Select _id,title,body,image from DataTable where title like (%"+queryParam+"%) or body like (%"+queryParam+"%)";
+        Cursor cursor = db.rawQuery(query,null);
+        if (cursor.moveToFirst()) {
+            do {
+                DBRecord dbRec = new DBRecord();
+                dbRec.set_id(Integer.parseInt(cursor.getString(0)));
+                dbRec.setTitle(cursor.getString(1));
+                dbRec.setBody(cursor.getString(2));
+                dbRec.setImage(cursor.getString(3));
+                recList.add(dbRec);
+
+            } while (cursor.moveToNext());
+        }
+        return recList;
     }
 
     public boolean checkIfLicensed(String token) {

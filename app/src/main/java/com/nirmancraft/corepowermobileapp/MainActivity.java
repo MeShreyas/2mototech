@@ -31,12 +31,12 @@ public class MainActivity extends Activity {
     String[] options = {
             "Search for Solution",
             "Browse all Solutions",
-            "Phone"
+            "Contact Us"
     } ;
     Integer[] optionImages = {
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher
+            R.drawable.icon_search,
+            R.drawable.icon_browse,
+            R.drawable.icon_contact
     };
 
     @Override
