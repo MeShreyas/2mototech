@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CorePowerMobileApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_splash_screen">CorePower</string>
+    <string name="title_app">CorePower</string>
+    <string name="title_activity_browse">BrowseActivity</string>
+    <string name="title_activity_details">CorePower</string>
+    <string name="activation_text">Enter Activation Key</string>
+    <string name="title_activity_license">LicenseActivity</string>
+
+</resources>
