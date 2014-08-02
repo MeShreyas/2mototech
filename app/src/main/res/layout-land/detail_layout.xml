@@ -3,6 +3,7 @@
     android:layout_width="fill_parent">
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent" android:layout_height="fill_parent">
+
         <TableRow android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:padding="5dp">
@@ -13,6 +14,7 @@
                 android:scrollHorizontally="false"
                 android:ellipsize="none"
                 android:layout_weight="1"
+                android:gravity = "center"
                  />
 
         </TableRow>
@@ -20,24 +22,28 @@
         <TableRow android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="100dp"
-                android:maxHeight="100dp"
-                android:minWidth="100dp"
-                android:minHeight="100dp"
                 android:id="@+id/detailImage"
                 android:adjustViewBounds="false"
-                android:layout_weight="0"
-                android:scaleType="fitXY"/>
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:gravity="left"
+                android:longClickable="true" />
 
+            <View
+                android:layout_width="2dp"
+                android:layout_height="fill_parent"
+                android:background="#c0c0c0"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/detailText"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
+                android:gravity="left"
                 />
         </TableRow>
     </TableLayout>

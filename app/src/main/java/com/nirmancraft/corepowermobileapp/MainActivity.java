@@ -40,20 +40,18 @@ public class MainActivity extends Activity {
     };
 
     @Override
+    public boolean onSearchRequested() {
+
+        return super.onSearchRequested();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CustomList adapter = new
                 CustomList(MainActivity.this, options, optionImages);
-/*        // check for license here
-        TelephonyManager tMgr = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
-        String tempId = tMgr.getDeviceId();
-        tempId = tempId.substring(0,5);
-        final String deviceId = tempId;
 
-        boolean licensed = LicenseManager.fetchLicenseDetails(deviceId,getApplicationContext());*/
-
-        //if(licensed) {
             listView = (ListView) findViewById(R.id.mainMenuOptions);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -62,6 +60,7 @@ public class MainActivity extends Activity {
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                     switch(position) {
                         case SEARCH:
+                            onSearchRequested();
                             break;
                         case BROWSE:
                             // Need to call a listing Activity here to load all the DB entries
@@ -69,13 +68,25 @@ public class MainActivity extends Activity {
                             startActivity(browseIntent);
                             break;
                         case CALL:
-                            Toast.makeText(MainActivity.this,"Call functionality is still not live.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"Mail us at this@here.com",Toast.LENGTH_LONG).show();
                             break;
                     }
                 }
             });
 
+    }
 
-       // }
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        MainActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }

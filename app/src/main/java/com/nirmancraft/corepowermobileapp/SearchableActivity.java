@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nirmancraft.corepower.R;
 import com.nirmancraft.corepowermobileapp.helpers.lists.BrowseList;
@@ -32,6 +33,10 @@ public class SearchableActivity extends Activity {
         if(Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             recordList = searchData(query);
+            if(recordList.isEmpty()) {
+                Toast.makeText(SearchableActivity.this, "No records founds for the entered query. Try changing the keywords", Toast.LENGTH_LONG).show();
+                finish();
+            }
             BrowseList adapter = new
                     BrowseList(SearchableActivity.this,recordList);
             listView = (ListView) findViewById(R.id.browseOptions);

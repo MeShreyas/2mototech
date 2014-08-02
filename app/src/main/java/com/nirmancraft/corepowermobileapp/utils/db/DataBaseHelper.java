@@ -201,7 +201,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public List<DBRecord> searchRecords(String queryParam) {
         List<DBRecord> recList = new ArrayList<DBRecord>();
         SQLiteDatabase  db = this.getReadableDatabase();
-        String query = "Select _id,title,body,image from DataTable where title like (%"+queryParam+"%) or body like (%"+queryParam+"%)";
+        String query = "Select _id,title,body,image from DataTable where title like '%"+queryParam+"%' or body like '%"+queryParam+"%' order by title";
         Cursor cursor = db.rawQuery(query,null);
         if (cursor.moveToFirst()) {
             do {
