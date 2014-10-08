@@ -11,11 +11,20 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/activation_text"
         android:id="@+id/activation_text"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/device_id"
+        android:gravity="center"
+        android:textColor="@android:color/white"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/license_text" />
+        android:id="@+id/license_text"
+        />
 
 </LinearLayout>

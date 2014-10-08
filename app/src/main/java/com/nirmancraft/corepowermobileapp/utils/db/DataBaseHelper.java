@@ -14,7 +14,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -218,8 +223,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean checkIfLicensed(String token) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = new GregorianCalendar();
+        cal.add(Calendar.DATE,-180);
+        String dateString = sdf.format(cal.getTime());
         SQLiteDatabase  db = this.getReadableDatabase();
-        String query = "Select count(1) from License where token=\""+token+"\"";
+        String query = "Select count(1) from License where token=\""+token+"\" and activation_date>="+"\""+ dateString +"\"";
         Cursor cursor = db.rawQuery(query,null);
         int count = -1;
         if (cursor.moveToFirst()) {
@@ -232,6 +241,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void saveLicense(String license) {
         SQLiteDatabase  db = this.getReadableDatabase();
-        db.execSQL("INSERT into License (token) values(\""+license+"\")");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = new GregorianCalendar();
+        String dateString = sdf.format(cal.getTime());
+        db.execSQL("INSERT into License (token,activation_date) values(\""+license+"\",\""+dateString+"\")");
     }
 }

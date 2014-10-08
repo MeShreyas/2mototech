@@ -1,50 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="fill_parent"
-    android:layout_width="fill_parent">
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent" android:layout_height="fill_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-        <TableRow android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:padding="5dp">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
             <TextView
-                android:layout_width="fill_parent"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/detailTitle"
-                android:scrollHorizontally="false"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:ellipsize="none"
-                android:layout_weight="1"
-                android:gravity = "center"
-                 />
+                android:gravity="center"
+                android:scrollHorizontally="false"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#c0c0c0" />
 
-        </TableRow>
-
-        <TableRow android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/detailImage"
-                android:adjustViewBounds="false"
-                android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:gravity="left"
-                android:longClickable="true" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="fill_parent"
-                android:background="#c0c0c0"/>
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:adjustViewBounds="false"
+                android:gravity="left"
+                android:longClickable="true"
+                android:scaleType="centerInside" />
+
+
+
+            <TextView
                 android:id="@+id/detailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:gravity="left"
-                />
-        </TableRow>
-    </TableLayout>
+                android:gravity="left" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+         <TableRow android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:padding="5dp">
+             <TextView
+                 android:layout_width="fill_parent"
+                 android:textAppearance="?android:attr/textAppearanceLarge"
+                 android:id="@+id/detailTitle"
+                 android:scrollHorizontally="false"
+                 android:ellipsize="none"
+                 android:layout_weight="1"
+                 android:gravity = "center"
+                  />
+
+         </TableRow>
+
+         <TableRow android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="5dp">
+
+             <ImageView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/detailImage"
+                 android:adjustViewBounds="false"
+                 android:layout_weight="1"
+                 android:scaleType="centerInside"
+                 android:gravity="left"
+                 android:longClickable="true" />
+
+             <View
+                 android:layout_width="2dp"
+                 android:layout_height="fill_parent"
+                 android:background="#c0c0c0"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/detailText"
+                 android:layout_margin="5dp"
+                 android:layout_weight="3"
+                 android:gravity="left"
+                 />
+         </TableRow>
+     </TableLayout>-->
 </ScrollView>

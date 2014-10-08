@@ -17,8 +17,7 @@
             android:layout_height="wrap_content"
             android:scrollHorizontally="false"
             android:ellipsize="none"
-            android:textAlignment="center"
-            android:textIsSelectable="false"
+
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingRight="20dp"

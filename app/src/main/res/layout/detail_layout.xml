@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/detailImage"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:adjustViewBounds="false"
             android:scaleType="centerInside"
             android:gravity="center"/>
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/detailText"
             android:layout_centerHorizontal="true"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             />
         </LinearLayout>
 

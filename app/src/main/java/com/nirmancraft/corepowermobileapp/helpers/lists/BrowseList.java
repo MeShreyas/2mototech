@@ -1,6 +1,9 @@
 package com.nirmancraft.corepowermobileapp.helpers.lists;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +37,10 @@ public class BrowseList extends ArrayAdapter<DBRecord> {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
         DBRecord dbrec = records.get(position);
         txtTitle.setText(dbrec.getTitle());
-        String imageName = dbrec.getImage().substring(0,dbrec.getImage().indexOf("."));
-        imageView.setImageResource(context.getResources().getIdentifier(imageName,"drawable",context.getPackageName()));
+        String imageName = dbrec.getImage().substring(0, dbrec.getImage().indexOf("."));
+        Bitmap b = BitmapFactory.decodeResource(context.getResources(),context.getResources().getIdentifier(imageName,"drawable",context.getPackageName()));
+        imageView.setImageBitmap(Bitmap.createScaledBitmap(b,50,50,false));
+        b=null;
         rowView.setId(dbrec.get_id());
         return rowView;
     }

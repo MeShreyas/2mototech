@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nirmancraft.corepower.R;
@@ -42,6 +44,9 @@ public class LicenseActivity extends Activity {
                 View promptView = layoutInflater.inflate(R.layout.prompt, null);
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                TextView textView = (TextView)promptView.findViewById(R.id.device_id);
+                textView.setText("Your device id is : "+deviceId);
+                textView.setTextColor(Color.WHITE);
                 alertDialogBuilder.setView(promptView);
                 final EditText input = (EditText) promptView.findViewById(R.id.license_text);
 

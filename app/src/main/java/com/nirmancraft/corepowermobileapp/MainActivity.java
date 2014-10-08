@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
                             startActivity(browseIntent);
                             break;
                         case CALL:
-                            Toast.makeText(MainActivity.this,"Mail us at this@here.com",Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,"Mail us at macasp@gmail.com",Toast.LENGTH_LONG).show();
                             break;
                     }
                 }

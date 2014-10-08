@@ -11,6 +11,8 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Shreyas on 7/30/2014.
@@ -32,7 +34,10 @@ public class LicenseManager {
 
     private static String getMD5Hash(String userMobile, String ownerMobile)
     {
-        String input=ownerMobile+userMobile;
+        Calendar cal = new GregorianCalendar();
+        int month = cal.getTime().getMonth();
+        int year = cal.getTime().getYear();
+        String input=ownerMobile+String.valueOf(month) + String.valueOf(year)+userMobile;
         try {
             MessageDigest m = MessageDigest.getInstance("MD5");
             m.update(input.getBytes("UTF-8"), 0, input.length());
